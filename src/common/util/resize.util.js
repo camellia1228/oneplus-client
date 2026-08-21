@@ -1,4 +1,4 @@
-import { canvas } from '../../main.js'
+// import { canvas } from '../../main.js'
 
 const devicePixelRatio = window.devicePixelRatio || 1
 let resizeTimeout
@@ -11,9 +11,7 @@ const resizeScreen = () => {
   canvas.style.height = `${innerHeight}px`
 }
 
-resizeScreen()
-
-window.addEventListener('resize', () => {
+export default window.addEventListener('resize', () => {
   clearTimeout(resizeTimeout)
   resizeTimeout = setTimeout(resizeScreen, 200)
 })
