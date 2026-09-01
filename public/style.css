@@ -34,7 +34,7 @@ canvas {
   left: 70px;
 }
 
-#One {
+.One {
   font-size: 50px;
   font-weight: 750;
   position: absolute;
@@ -42,7 +42,7 @@ canvas {
   left: 70px;
 }
 
-#OneRight {
+.OneRight {
   font-size: 30px;
   font-weight: 900;
   position: absolute;
@@ -85,7 +85,7 @@ canvas {
     bottom: 120px;
     transition: background-color ;
   }
-  :hover {
+  #underline:hover {
     text-decoration: underline;
   }
   .borderless-option {
@@ -101,3 +101,56 @@ canvas {
     bottom: 90px;
     transition: background-color ;
   }
+
+  #BarImg {
+    width: 4%;
+    position: absolute;
+    top: 60px;
+    left: 370px;
+  }
+
+  #BarImg2 {
+    width: 50%;
+    position: absolute;
+    top: 60px;
+    left: 420px;
+  }
+
+  
+  #Chart {     
+    cursor: pointer;      
+    outline: none;     
+    font-size: 17px;   
+    font-weight: 700;
+    position: absolute;
+    left: 80px;
+    bottom: 265px;
+    transition: background-color ;
+  }
+
+
+
+  .scroll-container {
+  height: 433px;
+  width: 576px;
+  overflow-y: scroll; 
+  padding: 10px;
+  position: absolute;
+  top: 110px;
+  left: 420px;
+}
+.scroll-container::-webkit-scrollbar {
+  width: 8px; /* 스크롤바 너비 */
+}
+.scroll-container::-webkit-scrollbar-track {
+  background: #000000; /* 스크롤바 배경*/
+
+}
+
+
+.scroll-container::-webkit-scrollbar-thumb {
+  background: #ffffff; 
+
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
