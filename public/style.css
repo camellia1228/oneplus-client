@@ -121,16 +121,17 @@ canvas {
 
 
 #BarImg {
-  width: 4%;
+  width: 60px;
   position: absolute;
-  top: 60px;
+  top: 7%;
   left: 360px;
 }
 
 #BarImg2 {
   width: 50%;
+  height: 55px;
   position: absolute;
-  top: 60px;
+  top: 7%;
   left: 425px;
 }
 
@@ -147,7 +148,7 @@ canvas {
 
 .scroll-container {
   height: 547px;
-  width: 730px;
+  width: 50%;
   overflow-y: scroll;
   padding: 10px;
   position: absolute;
@@ -167,16 +168,75 @@ canvas {
 }
 /* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)----------------------------------------------------------------------------*/
 @media all and (min-width:1024px) and (max-width:1279px) { 
+#BarImg {
+  width: 60px;
+  position: absolute;
+  top: 7%;
+  left: 360px;
+}
 
+#BarImg2 {
+  width: 50%;
+  height: 55px;
+  position: absolute;
+  top: 7%;
+  left: 425px;
+}
 
 } 
 
 /* 테블릿 가로 (해상도 768px ~ 1023px)*/ 
-@media all and (min-width:768px) and (max-width:1023px) { 
+@media all and (min-width:768px) and (max-width:1023px) {
+  #BarImg {
+  width: 60px;
+  position: absolute;
+  top: 7%;
+  left: 310px;
+}
+
+#BarImg2 {
+  width: 40%;
+  height: 55px;
+  position: absolute;
+  top: 7%;
+  left: 375px;
+}
+.scroll-container {
+  height: 547px;
+  width: 40%;
+  overflow-y: scroll;
+  padding: 10px;
+  position: absolute;
+  top: 120px;
+  left: 370px;
+}
 } 
 
 /* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/ 
 @media all and (min-width:480px) and (max-width:767px) {
+  #BarImg {
+  width: 60px;
+  position: absolute;
+  top: 7%;
+  left: 280px;
+}
+
+#BarImg2 {
+  width: 40%;
+  height: 55px;
+  position: absolute;
+  top: 7%;
+  left: 345px;
+}
+ .scroll-container {
+  height: 547px;
+  width: 730px;
+  overflow-y: scroll;
+  padding: 10px;
+  position: absolute;
+  top: 120px;
+  left: 340px;
+}
 } 
 
 /* 모바일 세로 (해상도 ~ 479px)*/ 
