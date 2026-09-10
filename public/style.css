@@ -138,7 +138,14 @@ canvas {
       background-color: white;
     }
 
+.user-info {
+  margin-left: 15px;
+}
 
+.play-time {
+  margin: 0;
+  color: white;
+}
 .black-box2 {
       width: 715px;
       height: 60px;
@@ -221,8 +228,24 @@ canvas {
   margin-bottom: 3px;
   background-color: #ffffff;
 }
+.Music-Name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: #ffffff;
+  position: relative;
+  left: 2.5%;
+  bottom: 28%;
+}
 
-
+.Artist{
+  margin: 0;
+  font-size: 12px;
+  font-weight: 700;
+  color: #ffffff;
+  position: relative;
+  left: -11%;
+}
 
 
 
