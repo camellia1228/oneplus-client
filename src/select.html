@@ -4,21 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../public/style.css" />
+    
     <title>Document</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="page-wrapper">
+    <script type="module" src="main.js"></script>
+        <button id="underline" class="borderless-option" onclick="location.href = 'main.html'">← BACK TO MENU</button>
+
+
         <div class="text-group">
-            <p class="One">ONE</p>
-            <p class="OneRight">[+]</p>
+             <p class="One">ONE</p>
+             <p class="OneRight">[+]</p>
         </div>
-        <button id="underline" class="borderless-start" onclick="location.href = 'main.html'">← BACK TO MENU</button>
-        <p id="Chart">MAPS</p>
+        <p id="Chart">SELECT</p>
 
-
+        <div class="play-box">
+            <div class="photo-box"></div>
+            <p class="play-title">Music Name</p>
+        </div>
 
         <div class="black-box">
             <div class="user-info">
@@ -38,10 +44,13 @@
         <div class="scroll-container">
             <div class="Music-Box">
                 <div class="Music-Profile"></div>
-                <p class="Music-Name">Music Name</p>
-                <p class="Artist">Artist</p>
+                <div class="Music-Info">
+                    <p class="Music-Name">Music Name</p>
+                    <p class="Artist">Artist</p>
+                </div>
             </div>
-
+            
+            </div>
         </div>
     </div>
 
