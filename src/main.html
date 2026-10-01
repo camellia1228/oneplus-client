@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../public/style.css" />
+    <link rel="stylesheet" href="../public/main.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,29 +19,41 @@
       rel="stylesheet" />
   </head>
   <body>
-    <div class="page-wrapper">
-      <p id="barcode">hij x01234</p>
-      <br />
-      <p id="MadeBy">©2026 Made By :</p>
-      <div class="text-group">
-        <p class="One">ONE</p>
-        <p class="OneRight">[+]</p>
-      </div>
-      <p id="Chart">WELCOME</p>
-      <img id="TitleImg" src="../public/TitleImg.png" alt="이미지 설명" />
-      <img id="Warning" src="../public/Warning.png" alt="경고문" />
-      <button
-        id="underline"
-        class="borderless-start"
-        onclick="location.href = 'select.html'">
-        START
-      </button>
-      <button
-        id="underline"
-        class="borderless-option"
-        onclick="location.href = 'settings.html'">
-        SETTING
-      </button>
-    </div>
+      <img
+        class="button-start2"
+        src="../public/Button_Start.png"
+        alt="" />
+      <img
+        class="button-start"
+        src="../public/Button_Start.png"
+        alt="Start Button"
+        onclick="location.href = 'select.html'" />
+      <img
+        class="button-edit2"
+        src="../public/Button_Edit.png"
+        alt="" />
+      <img
+        class="button-edit"
+        src="../public/Button_Edit.png"
+        alt="Edit Button"
+        onclick="location.href = 'edit.html'" />
+      <img
+        class="button-setting2"
+        src="../public/Button_Setting.png"
+        alt="" />
+      <img
+        class="button-setting"
+        src="../public/Button_Setting.png"
+        alt="Setting Button"
+        onclick="location.href = 'setting.html'" />
+      <img
+        class="main-logo"
+        src="../public/Main_Logo.png"
+        alt="Main Logo" />
+    <script>
+      document.querySelector('.main-logo').addEventListener('click', (e) => {
+        e.currentTarget.classList.toggle('moved')
+      })
+    </script>
   </body>
 </html>

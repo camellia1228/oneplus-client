@@ -1,0 +1,9 @@
+[
+  { "time": 2.0, "dir": "east" },
+  { "time": 2.5, "dir": "west" },
+  { "time": 3.0, "dir": "south" },
+  { "time": 3.1, "dir": "south" },
+  { "time": 3.2, "dir": "south" },
+  { "time": 3.3, "dir": "south" },
+  { "time": 3.5, "dir": "north" }
+]
