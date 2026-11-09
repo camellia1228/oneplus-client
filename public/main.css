@@ -1,0 +1,119 @@
+﻿* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  font-family: "JetBrains Mono", monospace;
+  background: #000000;
+  overflow: hidden;
+}
+
+.page-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform-origin: top left;
+  background: #000000;
+}
+
+canvas {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.main-logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  cursor: pointer;
+  transition: left 0.6s ease;
+}
+
+.button-start,
+.button-edit,
+.button-setting,
+.button-start2,
+.button-edit2,
+.button-setting2 {
+  position: absolute;
+  left: 50%;
+  width: 30%;
+}
+.button-start{
+  top: 33%;
+  left: 52%;
+}
+.button-setting{
+  top: 50%;
+  left: 53%
+}
+.button-edit{
+  top: 67%;
+  left: 52%;
+}
+.button-start2{
+  top: 33%;
+  left: 52%;
+}
+.button-setting2{
+  top: 50%;
+  left: 53%
+}
+.button-edit2{
+  top: 67%;
+  left: 52%;
+}
+
+.button-start2,
+.button-edit2,
+.button-setting2 {
+  transform: translate(-45%, -50%) scale(0.9);
+  opacity: 1;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.button-start2:hover,
+.button-edit2:hover,
+.button-setting2:hover {
+  transform: translate(-45%, -50%) scale(1);
+}
+
+.button-start,
+.button-edit,
+.button-setting {
+  cursor: pointer;
+  opacity: 1;
+  transform: translate(-45%, -50%) scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.button-start:hover,
+.button-edit:hover,
+.button-setting:hover {
+  opacity: 0;
+  transform: translate(-45%, -50%) scale(1);
+}
+
+.main-logo.moved {
+  left: 25%;
+}
+
+
+
+
+
+* {
+  cursor: url("./Cursor_64.png") 32 32, auto !important;
+}
+
+
