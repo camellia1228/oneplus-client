@@ -1,6 +1,7 @@
 // add service
 import './routes/route.service.js'
 import './common/util/resize.util.js'
+import { getTracks, imageUrl, audioUrl } from './api.js'
 
 // game
 // export const canvas = document.getElementById('game')
@@ -10,7 +11,7 @@ import './common/util/resize.util.js'
 export const app = document.getElementById('app')
 
 
-const musicList = [
+let musicList = [
   { id: 1,  name: 'Turkey March',     artist: 'Wolfgang Amadeus Mozart',bpm: 100, image: '../public/Profile/Turkey March.png',      audio: '../public/Music/Turkey March.mp3'      },
   { id: 2,  name: 'Midnight Triplet', artist: 'Suno',                   bpm: 130, image: '../public/Profile/Midnight Triplet.jpeg', audio: '../public/Music/Midnight Triplet.m4a'  },
   { id: 3,  name: 'Cat Foot',         artist: 'Suno',                   bpm: 71,  image: '../public/Profile/Cat Foot.jpeg',         audio: '../public/Music/Cat Foot.m4a'          },
@@ -28,7 +29,24 @@ const musicList = [
   { id: 15, name: 'TestMusic',       artist: 'Unknown',                bpm: 120, audio: '../public/Music/TestMusic.m4a'        },
 ];
 
-const container = document.querySelector('.scroll-container');
+try {
+  const data = await getTracks()
+  const tracks = Array.isArray(data) ? data : data?.tracks
+  if (tracks?.length) {
+    musicList = tracks.map((t) => ({
+      id: t.id,
+      name: t.title,
+      artist: t.artist,
+      bpm: t.bpm ?? '-',
+      image: imageUrl(t.image),
+      audio: audioUrl(t.audio),
+    }))
+  }
+} catch (e) {
+  console.error(e)
+}
+
+const container =document.querySelector('.scroll-container');
 const photoBox = document.querySelector('.photo-box');
 
 const audioCache = new Map();

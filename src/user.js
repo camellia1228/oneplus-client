@@ -1,4 +1,6 @@
-const userName = document.querySelector('.user-name');
+import { getMe, login, logout } from './api.js';
+
+const userName =document.querySelector('.user-name');
 const welcome = document.querySelector('.user-welcome');
 const message = document.querySelector('.user-message');
 const views = document.querySelectorAll('[data-view]');
@@ -25,9 +27,7 @@ document.querySelectorAll('[data-go]').forEach((button) => {
 
 document.querySelector('[data-view="login"]').addEventListener('submit', (e) => {
   e.preventDefault();
-  setUser(e.currentTarget.elements.id.value.trim());
-  e.currentTarget.reset();
-  showView('logged-in');
+  login();
 });
 
 document.querySelector('[data-view="signup"]').addEventListener('submit', (e) => {
@@ -42,7 +42,15 @@ document.querySelector('[data-view="signup"]').addEventListener('submit', (e) =>
   showView('login');
 });
 
-document.querySelector('[data-action="logout"]').addEventListener('click', () => {
+document.querySelector('[data-action="logout"]').addEventListener('click', async () => {
+  await logout().catch(console.error);
   setUser('');
   showView('login');
 });
+
+getMe()
+  .then((me) => {
+    setUser(me.nickname ?? me.name);
+    showView('logged-in');
+  })
+  .catch(() => {});
