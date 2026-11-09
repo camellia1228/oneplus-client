@@ -1,0 +1,11 @@
+[
+  { "time": 0.74, "dir": "west" },
+  { "time": 0.97, "dir": "south" },
+  { "time": 1.3, "dir": "east" },
+  { "time": 1.72, "dir": "north" },
+  { "time": 2.57, "dir": "west" },
+  { "time": 2.99, "dir": "south" },
+  { "time": 3.4, "dir": "east" },
+  { "time": 3.98, "dir": "north" },
+  { "time": 4.23, "dir": "west" }
+]

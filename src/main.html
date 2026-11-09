@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="../public/style.css" />
-
+    <link rel="stylesheet" href="../public/css/main.css" />
+    <link rel="stylesheet" href="../public/css/setting.css" />
+    <link rel="stylesheet" href="../public/css/user.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -19,29 +20,94 @@
       rel="stylesheet" />
   </head>
   <body>
-    <div class="page-wrapper">
-      <p id="barcode">hij x01234</p>
-      <br />
-      <p id="MadeBy">©2026 Made By :</p>
-      <div class="text-group">
-        <p class="One">ONE</p>
-        <p class="OneRight">[+]</p>
+      <div class="setting-dim"></div>
+      <div class="setting-screen"></div>
+
+
+      <img
+        class="button-start2"
+        src="../public/img/Button_Start.png"
+        alt="" />
+      <img
+        class="button-start"
+        src="../public/img/Button_Start.png"
+        alt="Start Button"
+        onclick="location.href = 'select.html'" />
+      <img
+        class="button-edit2"
+        src="../public/img/Button_Edit.png"
+        alt="" />
+      <img
+        class="button-edit"
+        src="../public/img/Button_Edit.png"
+        alt="Edit Button"
+        onclick="location.href = 'edit.html'" />
+      <img
+        class="button-setting2"
+        src="../public/img/Button_Setting.png"
+        alt="" />
+      <img
+        class="button-setting"
+        src="../public/img/Button_Setting.png"
+        alt="Setting Button" />
+      <img
+        class="main-logo"
+        src="../public/img/Main_Logo.png"
+        alt="Main Logo" />
+
+      <div class="user-area">
+        <div class="user-box">
+          <div class="user-profile"></div>
+          <p class="user-name">USER</p>
+        </div>
+        <div class="user-panel">
+          <form class="user-form" data-view="login" autocomplete="off">
+            <h2 class="user-title">LOGIN</h2>
+            <input class="user-input" name="id" type="text" placeholder="ID" required />
+            <input class="user-input" name="password" type="password" placeholder="PASSWORD" required />
+            <button class="user-button" type="submit">LogIn</button>
+            <button class="user-button user-link" type="button" data-go="signup">SignUp</button>
+          </form>
+
+          <form class="user-form" data-view="signup" autocomplete="off" hidden>
+            <h2 class="user-title">SIGN UP</h2>
+            <input class="user-input" name="id" type="text" placeholder="ID" required />
+            <input class="user-input" name="password" type="password" placeholder="PASSWORD" required />
+            <input class="user-input" name="confirm" type="password" placeholder="PASSWORD CONFIRM" required />
+            <p class="user-message"></p>
+            <button class="user-button" type="submit">SignUp</button>
+            <button class="user-button user-link" type="button" data-go="login">To LogIn</button>
+          </form>
+
+          <div class="user-form" data-view="logged-in" hidden>
+            <h2 class="user-title">WELCOME</h2>
+            <p class="user-welcome"></p>
+            <button class="user-button" type="button" data-action="logout">LogOut</button>
+          </div>
+        </div>
       </div>
-      <p id="Chart">WELCOME</p>
-      <img id="TitleImg" src="../public/TitleImg.png" alt="이미지 설명" />
-      <img id="Warning" src="../public/Warning.png" alt="경고문" />
-      <button
-        id="underline"
-        class="borderless-start"
-        onclick="location.href = 'select.html'">
-        START
-      </button>
-      <button
-        id="underline"
-        class="borderless-option"
-        onclick="location.href = 'settings.html'">
-        SETTING
-      </button>
-    </div>
+
+    <script type="module" src="user.js"></script>
+    <script>
+      document.querySelector('.main-logo').addEventListener('click', (e) => {
+        e.currentTarget.classList.toggle('moved')
+      })
+
+      const settingScreen = document.querySelector('.setting-screen')
+      const settingDim = document.querySelector('.setting-dim')
+      const setSettingOpen = (open) => {
+        settingScreen.classList.toggle('open', open)
+        settingDim.classList.toggle('open', open)
+      }
+      document.querySelector('.button-setting').addEventListener('click', (e) => {
+        e.stopPropagation()
+        setSettingOpen(!settingScreen.classList.contains('open'))
+      })
+      document.addEventListener('click', (e) => {
+        if (!settingScreen.contains(e.target)) {
+          setSettingOpen(false)
+        }
+      })
+    </script>
   </body>
 </html>
