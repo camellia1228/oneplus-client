@@ -112,8 +112,23 @@ let selectedMusic = null;
 
 document.querySelector('.Play-Button').addEventListener('click', () => {
   if (!selectedMusic) return;
-  location.href = `game.html?song=${encodeURIComponent(selectedMusic.name)}&audio=${encodeURIComponent(selectedMusic.audio)}`;
+  const params = new URLSearchParams({ song: selectedMusic.name });
+  if (selectedMusic.audio) params.set('audio', selectedMusic.audio);
+  location.href = `game.html?${params}`;
 });
+
+// 새 이미지가 오른쪽에서 밀려 들어와 기존 이미지를 덮는다
+function showPhoto(image) {
+  const layer = document.createElement('div');
+  layer.className = 'photo-layer';
+  if (image) {
+    layer.style.backgroundImage = `linear-gradient(to right, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 1) 100%), url('${image}')`;
+  }
+  photoBox.appendChild(layer);
+  layer.addEventListener('animationend', () => {
+    while (layer.previousElementSibling) layer.previousElementSibling.remove();
+  });
+}
 
 function selectMusic(id) {
   const music = musicList.find((item) => item.id === id);
@@ -126,11 +141,7 @@ function selectMusic(id) {
   document.querySelector('.play-title').textContent = music.name;
   document.querySelector('.play-artist').textContent = music.artist;
 
-  if (photoBox) {
-    photoBox.style.backgroundImage = music.image
-      ? `linear-gradient(to right, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 1) 100%), url('${music.image}')`
-      : '';
-  }
+  if (photoBox) showPhoto(music.image);
 
   if (currentAudio) {
     currentAudio.pause();
