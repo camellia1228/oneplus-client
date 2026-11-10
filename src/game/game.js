@@ -62,19 +62,10 @@ function startPattern(pattern, audioUrl) {
   requestAnimationFrame(loop);
 }
 
-async function findAudio(song) {
-  for (const ext of ['m4a', 'mp3']) {
-    const url = `../public/Music/${encodeURIComponent(song)}.${ext}`;
-    const res = await fetch(url, { method: 'HEAD' });
-    if (res.ok) return url;
-  }
-  return null;
-}
-
 async function loadPattern(song) {
   const res = await fetch(`../public/Pattern/${encodeURIComponent(song)}.json`);
   const pattern = await res.json();
-  startPattern(pattern, await findAudio(song));
+  startPattern(pattern, new URLSearchParams(location.search).get('audio'));
 }
 
 const song = new URLSearchParams(location.search).get('song');

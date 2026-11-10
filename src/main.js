@@ -11,37 +11,30 @@ import { getTracks, imageUrl, audioUrl } from './api.js'
 export const app = document.getElementById('app')
 
 
-let musicList = [
-  { id: 1,  name: 'Turkey March',     artist: 'Wolfgang Amadeus Mozart',bpm: 100, image: '../public/Profile/Turkey March.png',      audio: '../public/Music/Turkey March.mp3'      },
-  { id: 2,  name: 'Midnight Triplet', artist: 'Suno',                   bpm: 130, image: '../public/Profile/Midnight Triplet.jpeg', audio: '../public/Music/Midnight Triplet.m4a'  },
-  { id: 3,  name: 'Cat Foot',         artist: 'Suno',                   bpm: 71,  image: '../public/Profile/Cat Foot.jpeg',         audio: '../public/Music/Cat Foot.m4a'          },
-  { id: 4,  name: 'The Big Black',    artist: 'Nishikaze feat. Kotoha',     bpm: 233, level: 11 },
-  { id: 5,  name: 'Red Rotus',        artist: 'Suno',                   bpm: 222, image: '../public/Profile/Red Rotus.jpeg',        audio: '../public/Music/Red Rotus.m4a'         },
-  { id: 6,  name: 'PARANOiA',                   artist: '180',                        bpm: 180, level: 8 },
-  { id: 7,  name: 'MAX 300',                    artist: 'DM Ashura',                  bpm: 300, level: 12 },
-  { id: 8,  name: 'Conflict',                   artist: 'Sota Fujimori',              bpm: 175, level: 9 },
-  { id: 9,  name: 'Sandstorm',                  artist: 'Darude',                     bpm: 136, level: 6 },
-  { id: 10, name: "World's End Dancehall",      artist: 'wowaka',                     bpm: 185, level: 8 },
-  { id: 11, name: 'Senbonzakura',               artist: 'Kurousa-P',                  bpm: 154, level: 7 },
-  { id: 12, name: 'Rainbow',                    artist: 'Sennzai',                    bpm: 175, level: 9 },
-  { id: 13, name: 'GOODTEK',                    artist: 'Camellia',                   bpm: 175, level: 10 },
-  { id: 14, name: 'Bad Apple!!',                artist: 'ZUN (Team Shanghai Alice)',  bpm: 138, level: 7 },
-  { id: 15, name: 'TestMusic',       artist: 'Unknown',                bpm: 120, audio: '../public/Music/TestMusic.m4a'        },
-];
+const PAGE_SIZE = 20
 
-try {
-  const data = await getTracks()
-  const tracks = Array.isArray(data) ? data : data?.tracks
-  if (tracks?.length) {
-    musicList = tracks.map((t) => ({
-      id: t.id,
-      name: t.title,
-      artist: t.artist,
-      bpm: t.bpm ?? '-',
-      image: imageUrl(t.image),
-      audio: audioUrl(t.audio),
-    }))
+async function loadAllTracks() {
+  const list = []
+  let cursor
+  while (true) {
+    const data = await getTracks(cursor)
+    const rows = Array.isArray(data) ? data : data?.tracks ?? []
+    list.push(...rows)
+    if (rows.length < PAGE_SIZE) break
+    cursor = rows[rows.length - 1].id
   }
+  return list
+}
+
+let musicList = []
+try {
+  musicList = (await loadAllTracks()).map((t) => ({
+    id: t.id,
+    name: t.title,
+    artist: t.artist,
+    image: imageUrl(t.image),
+    audio: audioUrl(t.audio),
+  }))
 } catch (e) {
   console.error(e)
 }
@@ -119,7 +112,7 @@ let selectedMusic = null;
 
 document.querySelector('.Play-Button').addEventListener('click', () => {
   if (!selectedMusic) return;
-  location.href = `game.html?song=${encodeURIComponent(selectedMusic.name)}`;
+  location.href = `game.html?song=${encodeURIComponent(selectedMusic.name)}&audio=${encodeURIComponent(selectedMusic.audio)}`;
 });
 
 function selectMusic(id) {
