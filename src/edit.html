@@ -13,6 +13,23 @@
       rel="stylesheet" />
   </head>
   <body>
+    <form class="upload-form" autocomplete="off">
+      <h2 class="upload-title">UPLOAD</h2>
+      <input class="upload-input" name="title" type="text" placeholder="TITLE" required />
+      <input class="upload-input" name="artist" type="text" placeholder="ARTIST" required />
+      <label class="upload-file">
+        <span>AUDIO</span>
+        <input name="audio" type="file" accept="audio/*" required />
+      </label>
+      <label class="upload-file">
+        <span>IMAGE</span>
+        <input name="image" type="file" accept="image/*" required />
+      </label>
+      <p class="upload-message"></p>
+      <button class="upload-button" type="submit">Upload</button>
+      <button class="upload-button" type="button" onclick="location.href = 'main.html'">Back</button>
+    </form>
+
     <script type="module" src="edit.js"></script>
   </body>
 </html>

@@ -1,6 +1,9 @@
-const SPEED = 400;
+import { getUnit } from './layout.js';
 
-const playerEl = document.querySelector('.player-east');
+const SPEED = 20.83; // u/s (1920x1080 기준 400px/s)
+const PLAYER_W = 7; // u, game.css의 플레이어 버튼 너비와 동일
+const PLAYER_IMG_W = 760;
+
 const noteImages = {};
 for (const dir of ['East', 'West', 'South', 'North']) {
   const img = new Image();
@@ -9,14 +12,14 @@ for (const dir of ['East', 'West', 'South', 'North']) {
 }
 
 function noteSize(img) {
-  return img.naturalWidth * (playerEl.width / playerEl.naturalWidth);
+  return img.naturalWidth * ((PLAYER_W * getUnit()) / PLAYER_IMG_W);
 }
 
 function notePos(note, canvas, elapsed) {
   const half = noteSize(noteImages[note.dir]) / 2;
   const cx = canvas.width / 2 - half;
   const cy = canvas.height / 2 - half;
-  const dist = (note.hitTime - elapsed) * SPEED;
+  const dist = (note.hitTime - elapsed) * SPEED * getUnit();
   switch (note.dir) {
     case 'east': return { x: cx + dist, y: cy };
     case 'west': return { x: cx - dist, y: cy };

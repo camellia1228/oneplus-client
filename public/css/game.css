@@ -1,4 +1,8 @@
 
+html {
+  --u: 1vw;
+}
+
 html,
 body {
   margin: 0;
@@ -17,7 +21,7 @@ body {
 
 .player-center {
   position: fixed;
-  width: 7%;
+  width: calc(var(--u) * 7);
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -26,17 +30,17 @@ body {
 
 .player-west {
   position: fixed;
-  width: 7%;
+  width: calc(var(--u) * 7);
   top: 50%;
-  left: 45%;
+  left: calc(50% - var(--u) * 5);
   transform: translate(-50%, -50%) rotate(-90deg);
   z-index: 1;
 }
 
 .player-south {
   position: fixed;
-  width: 7%;
-  top: 59%;
+  width: calc(var(--u) * 7);
+  top: calc(50% + var(--u) * 5);
   left: 50%;
   transform: translate(-50%, -50%) rotate(180deg);
   z-index: 1;
@@ -44,17 +48,17 @@ body {
 
 .player-east {
   position: fixed;
-  width: 7%;
+  width: calc(var(--u) * 7);
   top: 50%;
-  left: 55%;
+  left: calc(50% + var(--u) * 5);
   transform: translate(-50%, -50%) rotate(90deg);
   z-index: 1;
 }
 
 .player-north {
   position: fixed;
-  width: 7%;
-  top: 41%;
+  width: calc(var(--u) * 7);
+  top: calc(50% - var(--u) * 5);
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1;
@@ -63,7 +67,7 @@ body {
 
 .judge {
   position: fixed;
-  width: 100%;
+  width: calc(var(--u) * 100);
   transform: translate(-50%, -50%);
   opacity: 0;
   pointer-events: none;
@@ -74,10 +78,10 @@ body {
   animation: judge-fade 0.6s ease-out forwards;
 }
 
-.judge-west { top: 50%; left: -30%; }
-.judge-east { top: 50%; left: 130%; }
-.judge-south { top: 160%; left: 50%; }
-.judge-north { top: -60%; left: 50%; }
+.judge-west { top: 50%; left: calc(50% - var(--u) * 80); }
+.judge-east { top: 50%; left: calc(50% + var(--u) * 80); }
+.judge-south { top: calc(50% + var(--u) * 61.875); left: 50%; }
+.judge-north { top: calc(50% - var(--u) * 61.875); left: 50%; }
 
 @keyframes judge-fade {
   0% { opacity: 0; }

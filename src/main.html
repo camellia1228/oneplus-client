@@ -21,7 +21,12 @@
   </head>
   <body>
       <div class="setting-dim"></div>
-      <div class="setting-screen"></div>
+      <div class="setting-screen">
+        <label class="setting-row">
+          <span class="setting-label">OFFSET (ms)</span>
+          <input class="setting-input" type="number" step="1" value="0" />
+        </label>
+      </div>
 
 
       <img
@@ -61,23 +66,10 @@
           <p class="user-name">USER</p>
         </div>
         <div class="user-panel">
-          <form class="user-form" data-view="login" autocomplete="off">
+          <div class="user-form" data-view="login">
             <h2 class="user-title">LOGIN</h2>
-            <input class="user-input" name="id" type="text" placeholder="ID" required />
-            <input class="user-input" name="password" type="password" placeholder="PASSWORD" required />
-            <button class="user-button" type="submit">LogIn</button>
-            <button class="user-button user-link" type="button" data-go="signup">SignUp</button>
-          </form>
-
-          <form class="user-form" data-view="signup" autocomplete="off" hidden>
-            <h2 class="user-title">SIGN UP</h2>
-            <input class="user-input" name="id" type="text" placeholder="ID" required />
-            <input class="user-input" name="password" type="password" placeholder="PASSWORD" required />
-            <input class="user-input" name="confirm" type="password" placeholder="PASSWORD CONFIRM" required />
-            <p class="user-message"></p>
-            <button class="user-button" type="submit">SignUp</button>
-            <button class="user-button user-link" type="button" data-go="login">To LogIn</button>
-          </form>
+            <button class="user-button" type="button" data-action="login">Login to Google</button>
+          </div>
 
           <div class="user-form" data-view="logged-in" hidden>
             <h2 class="user-title">WELCOME</h2>
@@ -88,6 +80,7 @@
       </div>
 
     <script type="module" src="user.js"></script>
+    <script type="module" src="setting.js"></script>
     <script>
       document.querySelector('.main-logo').addEventListener('click', (e) => {
         e.currentTarget.classList.toggle('moved')

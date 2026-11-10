@@ -132,7 +132,6 @@ function selectMusic(id) {
 
   document.querySelector('.play-title').textContent = music.name;
   document.querySelector('.play-artist').textContent = music.artist;
-  document.querySelector('.play-bpm').textContent = `BPM ${music.bpm}`;
 
   if (photoBox) {
     photoBox.style.backgroundImage = music.image

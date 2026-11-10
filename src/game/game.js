@@ -5,6 +5,7 @@ import { showJudge } from './ui/judge-view.js';
 import { hit } from './ui/combo.js';
 import { addAccuracy } from './ui/accuracy.js';
 import { finishGame } from './finish.js';
+import './layout.js';
 import './ui/player.js';
 
 const LEAD_IN = 2;
@@ -22,6 +23,7 @@ let notes = [];
 let hasAudio = false;
 let elapsed = 0;
 let startTime = 0;
+const offsetMs = Number(localStorage.getItem('offsetMs')) || 0;
 const songTime = (t = performance.now()) => (t - startTime) / 1000;
 
 function judged(dir, name) {
@@ -31,7 +33,7 @@ function judged(dir, name) {
 }
 
 onPress((dir, t) => {
-  const result = judgePress(notes, dir, songTime(t));
+  const result = judgePress(notes, dir, songTime(t) - offsetMs / 1000);
   if (result) judged(result.note.dir, result.judgement);
 });
 
