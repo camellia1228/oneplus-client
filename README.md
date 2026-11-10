@@ -15,7 +15,7 @@ ES Module과 `fetch`를 쓰기 때문에 `file://`로 열면 동작하지 않습
 | 파일 | 설명 |
 |---|---|
 | `src/main.html` | 메인. Start / Edit / Setting 버튼, 로그인 영역, 설정 패널 |
-| `src/select.html` | 곡 선택. 서버 트랙 목록 표시 (서버 실패 시 로컬 목록) |
+| `src/select.html` | 곡 선택. 서버 트랙 목록 표시 |
 | `src/game.html` | 게임 화면 (`?song=곡이름`) |
 | `src/score.html` | 결과 화면 |
 | `src/edit.html` | 곡 업로드 폼 |
