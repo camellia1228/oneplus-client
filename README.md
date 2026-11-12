@@ -61,6 +61,7 @@ const BASE = 'https://localhost:서버포트/api'
 
 1. **로그인**: 메인 화면 오른쪽 위 user 영역에 마우스를 올리면 패널이 열립니다. `Login to Google`로 테스트 계정에 로그인합니다.
 2. **곡 업로드**: **Edit** → 제목, 아티스트, 음원, 이미지를 선택하고 `Upload`합니다.
+https://drive.google.com/drive/folders/1zHpaFb5SwvSIekI7KB-LIUEwx53jXaD6?usp=drive_link(테스트용 곡과 이미지)
 3. **곡 선택**: **Start** → 업로드한 곡을 클릭해 미리듣기를 확인하고 **Play**를 누릅니다.
 4. **플레이**: `W/A/S/D` 또는 방향키로 노트가 오는 방향의 키를 누릅니다.
 5. **결과**: 곡이 끝나면 결과 화면이 나옵니다. `Esc`를 누르면 곡 선택 화면으로 돌아갑니다.
@@ -73,3 +74,5 @@ const BASE = 'https://localhost:서버포트/api'
 - **곡 목록이 비어 있다**: 서버가 켜져 있는지, `BASE`가 맞는지, 로그인했는지 확인합니다. 개발자 도구 Network 탭에서 `/track/info` 응답을 확인하세요.
 - **로그인이 안 된다**: https로 열었는지, 클라이언트와 서버가 모두 `localhost`인지 확인합니다.
 - **서버 API는 따로 호출해서 확인할 필요가 없습니다.** 이 문서의 순서대로 클라이언트에서 확인하세요.
+
+
